@@ -906,7 +906,7 @@ function main_fun_show_version(){
     fun_show_version_info
     exit 0
 }
-CONFIG_FILE_NAME=$2
+CONFIG_FILE_NAME="$2.cfg"
 # 根据输入参数执行对应函数
 case "$1" in
     "-config -run")
