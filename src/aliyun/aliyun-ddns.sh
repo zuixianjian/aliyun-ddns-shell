@@ -60,7 +60,7 @@ DEBIAN_OS_RELEASE="debian"
 # 配置、日志文件存放目录
 FILE_SAVE_DIR=""
 # 目录前缀
-FILE_DIR_PREFIX="aliyun-ddns"
+FILE_DIR_PREFIX="configs"
 #配置文件路径
 CONFIG_FILE_PATH=""
 # 配置文件名
@@ -170,17 +170,20 @@ function fun_check_root(){
 
 # 设置配置、日志文件保存目录
 function fun_setting_file_save_dir(){
+    if [ ! -n "$3" ] ;then
+    CONFIG_FILE_NAME=$3
+    fi
     fun_check_root
     if [ "${FILE_SAVE_DIR}" = "" ]; then
-        if [[ "${var_os_release}" =~ "${MAC_OS_RELEASE}" ]]; then
+        # if [[ "${var_os_release}" =~ "${MAC_OS_RELEASE}" ]]; then
             FILE_SAVE_DIR="./${FILE_DIR_PREFIX}"
-        else
-            if [ "${var_is_root_execute}" = true ]; then
-                FILE_SAVE_DIR="/etc/${FILE_DIR_PREFIX}"
-            else
-                FILE_SAVE_DIR="~/${FILE_DIR_PREFIX}"
-            fi
-        fi
+        # else
+            # if [ "${var_is_root_execute}" = true ]; then
+                # FILE_SAVE_DIR="/etc/${FILE_DIR_PREFIX}"
+            # else
+                # FILE_SAVE_DIR="~/${FILE_DIR_PREFIX}"
+            # fi
+        # fi
     fi
     
     if [ ! -d "$FILE_SAVE_DIR" ]; then
