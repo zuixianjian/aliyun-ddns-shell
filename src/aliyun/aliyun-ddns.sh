@@ -170,6 +170,7 @@ function fun_check_root(){
 
 # 设置配置、日志文件保存目录
 function fun_setting_file_save_dir(){
+    fun_wirte_log "${message_error_tag}配置名$3."
     if [ ! -n "$3" ] ;then
     CONFIG_FILE_NAME=$3
     fi
