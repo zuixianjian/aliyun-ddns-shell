@@ -170,10 +170,6 @@ function fun_check_root(){
 
 # 设置配置、日志文件保存目录
 function fun_setting_file_save_dir(){
-    fun_wirte_log "${message_error_tag}配置名$3."
-    if [ ! -n "$3" ] ;then
-    CONFIG_FILE_NAME=$3
-    fi
     fun_check_root
     if [ "${FILE_SAVE_DIR}" = "" ]; then
         # if [[ "${var_os_release}" =~ "${MAC_OS_RELEASE}" ]]; then
@@ -910,7 +906,7 @@ function main_fun_show_version(){
     fun_show_version_info
     exit 0
 }
-
+CONFIG_FILE_NAME=$3
 # 根据输入参数执行对应函数
 case "$1" in
     "-config -run")
